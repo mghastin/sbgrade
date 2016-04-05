@@ -13,6 +13,9 @@ class Progress(object):
 
 	def get_type(self):
 		return self.type
+		
+	def get_learning_goals(self):
+		return self.attempts.keys()
 	
 	def get_attempts(self,lg): # need to pass a LearningGoal object
 		assert isinstance(lg, LearningGoal), "Not Learning Goal"
@@ -29,6 +32,12 @@ class Progress(object):
 		assert type(lg) is LearningGoal, "Not a Learning Goal."
 		assert lg in self.attempts, "Progress does not track this Learning Goal."
 		return self.attempts[lg][0]
+	
+	def most_recent(self): 
+		most_recents = {}
+		for lg, history in self.attempts:
+			most_recents[lg] = history[0]
+		return most_recents
 	
 	# for later: make attempt search function
 	# for later: make attempt delete function
