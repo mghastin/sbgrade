@@ -21,12 +21,14 @@ class Student(object):
 			% (type, course) 
 		self.work[course][type] = progress
 		
-	def grades(self, lg = None):
+	def grades(self):
 		snapshot = {}
 		for course, progresses in self.work.items():
 			for type, progress in self.work[course].items():
 				snapshot[course][type] = progress.most_recent()
 		return snapshot
-				
+	
+	def get_name(self)
+		return self.name			
 		
 	
