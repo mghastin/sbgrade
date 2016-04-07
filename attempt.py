@@ -1,4 +1,6 @@
 import string 
+import json
+
 class Attempt(object):
 	def __init__(self, score, outof, date, lg, comment):
 		# store values in a dictionary called "info"
@@ -53,3 +55,6 @@ class Attempt(object):
 			else:
 				new_info[field] = value
 		self.info = new_info
+		
+	def get_json(self): # returns info dictionary that can be json serialized
+		return self.info

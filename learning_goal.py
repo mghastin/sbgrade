@@ -1,3 +1,5 @@
+import json
+
 class LearningGoal(object):
 	def __init__(self, title, number, description, standard):
 		# store values in a dictionary called "info"
@@ -23,3 +25,6 @@ class LearningGoal(object):
 			else:
 				new_info[field] = value
 		self.info = new_info
+		
+	def get_json(self):
+		return json.dumps(self.info, indent=4, separators=(',', ': '))
